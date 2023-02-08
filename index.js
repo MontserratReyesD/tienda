@@ -11,6 +11,11 @@ const port = 3000
 //Middeware para poder recuperar los datos pasados por post
 app.use(express.json())
 
+//Rutas
+app.get('/', (req, res) => {
+  res.send('Este es mi primer express')
+})
+
 routerApi(app)
 
 const whitelist = ["http://localhost:5500/frontend.html", "https://myapp.com"] //Solo permirte el acceso a estos dominios
@@ -24,11 +29,6 @@ const options = {
   }
 }
 app.use(cors(options))
-
-//Rutas
-app.get('/', (req, res) => {
-  res.send('Este es mi primer express')
-})
 
 app.use(logErrors)
 app.use(boomErrorHandler)
