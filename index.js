@@ -21,7 +21,7 @@ routerApi(app)
 const whitelist = ["http://localhost:5500/frontend.html", "https://myapp.com"] //Solo permirte el acceso a estos dominios
 const options = {
   origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
+    if (whitelist.includes(origin) || !origin) {
       callback(null, true)
     } else {
       callback(new Error('Acceso no permitido'))
